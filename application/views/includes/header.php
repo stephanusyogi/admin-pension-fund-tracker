@@ -95,14 +95,14 @@
                     <div class="dropdown-menu w-56">
                         <ul class="dropdown-content bg-primary/80 before:block before:absolute before:bg-black before:inset-0 before:rounded-md before:z-[-1] text-white">
                             <li class="p-2">
-                                <div class="font-medium">Stephanus Yogi</div>
+                                <div class="font-medium"><?= implode(' ', array_slice(explode(' ', $this->session->userdata('admin_pension_fund_tracker_data')['name']), 0, 2)) ?></div>
                                 <div class="text-xs text-white/60 mt-0.5 dark:text-slate-500">Selamat Datang!</div>
                             </li>
                             <li>
                                 <hr class="dropdown-divider border-white/[0.08]">
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
+                                <a href="<?= base_url("logout") ?>" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
                             </li>
                         </ul>
                     </div>
@@ -118,7 +118,7 @@
                 <nav class="side-nav">
                     <ul>
                         <li>
-                            <a href="#" class="side-menu ">
+                            <a href="<?= base_url() ?>" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="home"></i> </div>
                                 <div class="side-menu__title">
                                     Dashboard 
@@ -127,7 +127,7 @@
                         </li>
                         <li class="side-nav__devider my-6"></li>
                         <li>
-                            <a href="#" class="side-menu ">
+                            <a href="<?= base_url() ?>data-peserta" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="users"></i> </div>
                                 <div class="side-menu__title">
                                     Data Peserta 
@@ -136,7 +136,7 @@
                         </li>
                         <li class="side-nav__devider my-6"></li>
                         <li>
-                            <a href="#" class="side-menu ">
+                            <a href="<?= base_url() ?>setting-nilai-asumsi" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="settings"></i> </div>
                                 <div class="side-menu__title">
                                     Nilai Asumsi
@@ -144,7 +144,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="side-menu ">
+                            <a href="<?= base_url() ?>setting-portofolio-ppip" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="settings"></i> </div>
                                 <div class="side-menu__title">
                                     Portofolio PPIP
@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="side-menu ">
+                            <a href="<?= base_url() ?>setting-portofolio-personal-pasar-keuangan" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="settings"></i> </div>
                                 <div class="side-menu__title">
                                     Portofolio Personal Pasar Keuangan

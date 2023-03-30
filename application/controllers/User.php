@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends MY_controller {
+class User extends MY_controller {
 	
 	function __construct(){
 		parent::__construct();		
@@ -15,11 +15,15 @@ class Dashboard extends MY_controller {
 
 	public function index()
 	{
-		$data['title'] = "Dashboard";
-    $data['menuLink'] = "dashboard";
+		$token = $this->session->userdata('admin_pension_fund_tracker_token');
+
+		$data_user = $this->send_request("user?sort_order=desc&sort_field=created_at&per_page=10", $token, "GET");
+		$data['data_user'] = $data_user;
+		$data['title'] = "Peserta";
+    $data['menuLink'] = "data-peserta";
 
 		$this->load->view('includes/header', $data);
-		$this->load->view('v_dashboard', $data);
+		$this->load->view('v_peserta', $data);
 		$this->load->view('includes/footer', $data);
 	}
 }

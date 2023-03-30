@@ -6,24 +6,39 @@ class Auth extends MY_controller {
 	{
 		$this->load->view('v_auth_login');
 	}
-  
-	public function register()
+	
+	public function login_verication()
 	{
-		$this->load->view('v_auth_register');
-	}
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		
+		$data = array(
+			"username" => $username,
+			"password" => $password,
+		);
 
-	public function forgot_password()
-	{
-		$this->load->view('v_auth_forgot_password');
+		$response = $this->send_request_with_data_untoken("login-administrator", "POST", $data);
+
+		if ($response["status"]) {
+			$nama = explode(" ", $response['data']['name'])[0];
+			$this->session->set_userdata('admin_pension_fund_tracker_data', $response["data"]);
+			$this->session->set_userdata('admin_pension_fund_tracker_token', $response["access_token"]);
+			$this->session->set_userdata('admin_pension_fund_tracker_isLoggedIn', true);
+
+			$this->session->set_flashdata('success', "Login Berhasil. Selamat Datang, {$nama}!");
+			redirect(base_url());
+		} else {
+			$this->session->set_flashdata('error', 'Username/Password Anda Salah!');
+			redirect(base_url() . 'login');
+		}
+		
 	}
-	
-	public function change_password()
+  
+	public function logout()
 	{
-		$this->load->view('v_auth_change_password');
-	}
-	
-	public function email_verification()
-	{
-		$this->load->view('v_auth_email_verification');
+		$token = $this->session->userdata('admin_pension_fund_tracker_token');
+		$this->send_request("logout-administrator", $token, "GET");
+		session_destroy();
+		redirect(base_url() . 'login');
 	}
 }

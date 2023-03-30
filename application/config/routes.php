@@ -56,3 +56,11 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'auth/login';
 $route['login-verification'] = 'auth/login_verication';
 $route['logout'] = 'auth/logout';
+
+$route['data-peserta'] = 'user';
+
+$route['setting-portofolio-ppip'] = 'setting/ppip';
+
+$route['setting-nilai-asumsi'] = 'setting/nilai_asumsi';
+
+$route['setting-portofolio-personal-pasar-keuangan'] = 'setting/personal_pasar_keuangan';
