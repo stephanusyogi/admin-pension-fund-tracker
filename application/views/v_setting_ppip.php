@@ -8,7 +8,7 @@
                   <div class="flex items-center" style="justify-content: space-between;">
                     <p class="text-xl font-semibold mb-2">Setting Portofolio DAPENBI IP</p>
                     <div class="flex items-center gap-4">
-                      <a href="#" class="btn btn-md btn-secondary">
+                      <a href="<?= base_url() ?>setting-portofolio-ppip/tambah" class="btn btn-md btn-secondary">
                         <i data-lucide="plus-circle" class="mr-2"></i>
                         Tambah Jenis Investasi
                       </a>
@@ -26,20 +26,95 @@
                     <table class="table table-hover table-bordered" style="width:100%">
                       <thead>
                           <tr>
-                            <th colspan="2">Pilihan Investasi</th>
-                            <th class="text-center">Aksi</th>
+                            <th>Pilihan Investasi</th>
+                            <th colspan="2" class="text-center">Aksi</th>
                           </tr>
                           <tr>
-                            <th colspan="2">-</th>
-                            <th class="text-center">-</th>
+                            <th>-</th>
+                            <th colspan="2" class="text-center">
+                              <div class="flex items-center justify-center gap-4">
+                                <a href="<?= base_url() ?>setting-portofolio-ppip/edit/1" class="btn btn-sm btn-warning">
+                                  <i data-lucide="edit" class="mr-2"></i>
+                                  Edit
+                                </a>
+                                <a href="<?= base_url() ?>setting-portofolio-ppip/delete" class="hapus-investasi btn btn-sm btn-danger">
+                                  <i data-lucide="trash" class="mr-2"></i>
+                                  Hapus
+                                </a>
+                              </div>
+                            </th>
                           </tr>
-                          <tr class="text-center">
+                          <tr>
                             <th>Informasi</th>
                             <th>Investasi</th>
                             <th>Likuiditas</th>
                           </tr>
                       </thead>
                       <tbody>
+                          <tr>
+                            <td>Return Portofolio PPIP</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Risiko Pasar Portofolio PPIP</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">Komposisi Investasi</td>
+                          </tr>
+                          <tr>
+                            <td>Saham</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Pendapatan Tetap</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Deposito</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">Asumsi Return Investasi</td>
+                          </tr>
+                          <tr>
+                            <td>Saham</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Pendapatan Tetap</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Deposito</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">Asumsi Investasi</td>
+                          </tr>
+                          <tr>
+                            <td>Saham</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Pendapatan Tetap</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td>Deposito</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
                       </tbody>
                     </table>
                   </div>
@@ -49,3 +124,25 @@
     </div>
 </div>
 <!-- END: Content -->
+
+<script>
+  $(".hapus-investasi").on("click", function (e) {
+      e.preventDefault();
+      const href = $(this).attr("href");
+
+      Swal.fire({
+          title: "Konfirmasi Pilihan Anda",
+          text: "Apakah anda yakin dengan pilihan anda?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Hapus Investasi",
+          cancelButtonText: "Batalkan",
+      }).then((result) => {
+          if (result.isConfirmed) {  
+            document.location.href = href;
+          }
+      }); 
+  });
+</script>
