@@ -62,7 +62,7 @@
                             <td>-</td>
                           </tr>
                           <tr>
-                            <td colspan="3">Komposisi Investasi</td>
+                            <td colspan="3" class="font-medium text-center">Komposisi Investasi</td>
                           </tr>
                           <tr>
                             <td>Saham</td>
@@ -80,7 +80,7 @@
                             <td>-</td>
                           </tr>
                           <tr>
-                            <td colspan="3">Asumsi Return Investasi</td>
+                            <td colspan="3" class="font-medium text-center">Asumsi Return Investasi</td>
                           </tr>
                           <tr>
                             <td>Saham</td>
@@ -98,7 +98,7 @@
                             <td>-</td>
                           </tr>
                           <tr>
-                            <td colspan="3">Asumsi Investasi</td>
+                            <td colspan="3" class="font-medium text-center">Asumsi Risiko Investasi</td>
                           </tr>
                           <tr>
                             <td>Saham</td>

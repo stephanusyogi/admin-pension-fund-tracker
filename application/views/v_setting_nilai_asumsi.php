@@ -8,75 +8,41 @@
                   <div class="flex items-center" style="justify-content: space-between;">
                     <p class="text-xl font-semibold mb-2">Setting DAPENBI Nilai Asumsi</p>
                     <div class="flex items-center gap-4">
-                      <a href="<?= base_url() ?>setting-nilai-asumsi/tambah" class="btn btn-md btn-secondary">
-                        <i data-lucide="plus-circle" class="mr-2"></i>
-                        Tambah Jenis Investasi
+                      <a href="<?= base_url() ?>setting-nilai-asumsi/simpan" class="btn btn-md btn-secondary">
+                        Simpan
                       </a>
-                      <!-- <a href="#" class="btn btn-md btn-secondary">
-                        <i data-lucide="settings" class="mr-2"></i>
-                        Buka/Tutup Instrumen
-                      </a> -->
                     </div>
                   </div>
-                  <p class="font-medium">Silahkan pilih jenis investasi terlebih dahulu.</p>
-                  <select id="jenis_investasi" class="form-select mt-2" aria-label="Default select example" style="width:50%;">
-                        <option disabled selected>Jenis Investasi</option>
-                        <option>Konvensional Reguler</option>
-                        <option>Konvensional Reguler</option>
-                        <option>Konvensional Reguler</option>
-                  </select>
-                  <hr class="my-10">
+                  <hr class="my-5">
                   <div class="table-responsive ">
                     <table class="table table-hover table-bordered" style="width:100%">
                       <thead>
-                          <tr>
-                            <th>Pilihan Investasi</th>
-                            <th class="text-center">Aksi</th>
-                          </tr>
-                          <tr>
-                            <th>-</th>
-                            <th class="text-center">
-                              <div class="flex items-center justify-center gap-4">
-                                <a href="<?= base_url() ?>setting-nilai-asumsi/edit/1" class="btn btn-sm btn-warning">
-                                  <i data-lucide="edit" class="mr-2"></i>
-                                  Edit
-                                </a>
-                                <a href="<?= base_url() ?>setting-nilai-asumsi/delete" class="hapus-investasi btn btn-sm btn-danger">
-                                  <i data-lucide="trash" class="mr-2"></i>
-                                  Hapus
-                                </a>
-                              </div>
-                            </th>
-                          </tr>
+                        <tr>
+                          <td>#</td>
+                          <td>Nilai</td>
+                        </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>Kenaikan Gaji per tahun</td>
-                          <td></td>
+                          <td><input type="number" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                      <tbody>
+                        <tr>
+                          <td>Kenaikan PhDP per tahun</td>
+                          <td><input type="number" class="form-control" placeholder="Masukkan Nilai"></td>
                         </tr>
                         <tr>
                           <td>Iuran PPIP (% dari gaji)</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>Tambahan Iuran Mandiri PPIP</td>
-                          <td></td>
+                          <td><input type="number" class="form-control" placeholder="Masukkan Nilai"></td>
                         </tr>
                         <tr>
                           <td>Dasar pembayaran Iuran Personal</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>Jumlah Pembayaran Iuran Personal</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>Kenaikan Iuran Personal</td>
-                          <td></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
                         </tr>
                         <tr>
                           <td>Inflasi jangka panjang</td>
-                          <td></td>
+                          <td><input type="number" class="form-control" placeholder="Masukkan Nilai"></td>
                         </tr>
                       </tbody>
                     </table>

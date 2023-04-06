@@ -57,30 +57,6 @@ class Setting extends MY_controller {
 		$this->load->view('includes/footer', $data);
 	}
 
-	public function nilai_asumsi_add()
-	{
-		$data['title'] = "Setting Nilai Asumsi";
-    $data['menuLink'] = "setting-nilai-asumsi";
-
-		$this->load->view('includes/header', $data);
-		$this->load->view('v_setting_nilai_asumsi_add', $data);
-		$this->load->view('includes/footer', $data);
-	}
-	
-	public function nilai_asumsi_edit($id)
-	{
-		if (!$id) {
-			$this->session->set_flashdata('error', 'Investasi Tidak Ditemukan!');
-			return redirect(base_url() . 'setting-nilai-asumsi');
-		}	
-		$data['title'] = "Setting Nilai Asumsi";
-    $data['menuLink'] = "setting-nilai-asumsi";
-
-		$this->load->view('includes/header', $data);
-		$this->load->view('v_setting_nilai_asumsi_edit', $data);
-		$this->load->view('includes/footer', $data);
-	}
-
 	public function personal_pasar_keuangan()
 	{
 		$data['title'] = "Setting Portofolio Pasar Keuangan";
@@ -114,39 +90,5 @@ class Setting extends MY_controller {
 		$this->load->view('v_setting_personal_pasar_keuangan_edit', $data);
 		$this->load->view('includes/footer', $data);
 	}
-	
 
-	public function lifecycle()
-	{
-		$data['title'] = "Setting Komposisi Investasi Lifecycle Fund";
-    $data['menuLink'] = "setting-komposisi-investasi-lifecycle-fund";
-
-		$this->load->view('includes/header', $data);
-		$this->load->view('v_setting_lifecycle', $data);
-		$this->load->view('includes/footer', $data);
-	}
-
-	public function lifecycle_add()
-	{
-		$data['title'] = "Setting Komposisi Investasi Lifecycle Fund";
-    $data['menuLink'] = "setting-komposisi-investasi-lifecycle-fund";
-
-		$this->load->view('includes/header', $data);
-		$this->load->view('v_setting_lifecycle_add', $data);
-		$this->load->view('includes/footer', $data);
-	}
-	
-	public function lifecycle_edit($id)
-	{
-		if (!$id) {
-			$this->session->set_flashdata('error', 'Investasi Tidak Ditemukan!');
-			return redirect(base_url() . 'setting-komposisi-investasi-lifecycle-fund');
-		}	
-		$data['title'] = "Setting Komposisi Investasi Lifecycle Fund";
-    $data['menuLink'] = "setting-komposisi-investasi-lifecycle-fund";
-
-		$this->load->view('includes/header', $data);
-		$this->load->view('v_setting_lifecycle_edit', $data);
-		$this->load->view('includes/footer', $data);
-	}
 }

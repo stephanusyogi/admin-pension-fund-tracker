@@ -66,14 +66,8 @@ $route['setting-portofolio-ppip/tambah'] = 'setting/ppip_add';
 $route['setting-portofolio-ppip/edit/(:any)'] = 'setting/ppip_edit/$1';
 
 $route['setting-nilai-asumsi'] = 'setting/nilai_asumsi';
-$route['setting-nilai-asumsi/tambah'] = 'setting/nilai_asumsi_add';
-$route['setting-nilai-asumsi/edit/(:any)'] = 'setting/nilai_asumsi_edit/$1';
 
 $route['setting-portofolio-personal-pasar-keuangan'] = 'setting/personal_pasar_keuangan';
 $route['setting-portofolio-personal-pasar-keuangan/tambah'] = 'setting/personal_pasar_keuangan_add';
 $route['setting-portofolio-personal-pasar-keuangan/edit/(:any)'] = 'setting/personal_pasar_keuangan_edit/$1';
 
-
-$route['setting-komposisi-investasi-lifecycle-fund'] = 'setting/lifecycle';
-$route['setting-komposisi-investasi-lifecycle-fund/tambah'] = 'setting/lifecycle_add';
-$route['setting-komposisi-investasi-lifecycle-fund/edit/(:any)'] = 'setting/lifecycle_edit/$1';

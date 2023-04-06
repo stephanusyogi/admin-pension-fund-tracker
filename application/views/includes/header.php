@@ -159,14 +159,6 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="<?= base_url() ?>setting-komposisi-investasi-lifecycle-fund" class="side-menu ">
-                                <div class="side-menu__icon"> <i data-lucide="settings"></i> </div>
-                                <div class="side-menu__title">
-                                    Komposisi Investasi LifeCycle Fund
-                                </div>
-                            </a>
-                        </li>
                         <li class="side-nav__devider my-6"></li>
                         <li>
                             <a href="<?= base_url() ?>admin" class="side-menu ">

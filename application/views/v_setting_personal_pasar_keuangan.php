@@ -16,6 +16,10 @@
                         <i data-lucide="settings" class="mr-2"></i>
                         Buka/Tutup Instrumen
                       </a>
+                      <a href="<?= base_url() ?>setting-portofolio-personal-pasar-keuangan/hitung" class="btn btn-md btn-secondary">
+                        <i data-lucide="activity" class="mr-2"></i>
+                        Hitung Nilai
+                      </a>
                       <div id="instrumen-modal-preview" class="modal" tabindex="-1" aria-hidden="true">
                           <div class="modal-dialog">
                               <div class="modal-content">
@@ -23,6 +27,7 @@
                                       <h2 class="font-medium text-base mr-auto">Buka/Tutup Instrumen</h2>
                                   </div>
                                   <div class="modal-body">
+                                    <h2 class="font-base text-sm mr-auto mb-2">Setting ini akan diaplikasikan pada perhitungan selanjutnya.</h2>
                                     <table class="table table-bordered" style="width:100%">
                                       <thead>
                                         <tr>
@@ -160,11 +165,11 @@
                     <table class="table table-hover table-bordered" style="width:100%">
                       <thead>
                           <tr>
-                            <th colspan="7">Pilihan Investasi</th>
+                            <th colspan="4">Pilihan Investasi</th>
                             <th class="text-center">Aksi</th>
                           </tr>
                           <tr>
-                            <th colspan="7">-</th>
+                            <th colspan="4">-</th>
                             <th class="text-center">
                               <div class="flex items-center justify-center gap-4">
                                 <a href="<?= base_url() ?>setting-portofolio-personal-pasar-keuangan/edit/1" class="btn btn-sm btn-warning">
@@ -181,22 +186,73 @@
                           <tr>
                             <th colspan="2">Capital Market Expectation</th>
                             <th>Tranche Investasi 1</th>
-                            <th>Tranche Investasi 1 - Hitung</th>
                             <th>Tranche Investasi 2</th>
-                            <th>Tranche Investasi 2 - Hitung</th>
                             <th>Tranche Likuidtas</th>
-                            <th>Tranche Likuiditas - Hitung</th>
                           </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th colspan="8" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
+                          <td colspan="2">Return Portofolio Personal</td>
+                          <td>8.02%</td>
+                          <td>7.82%</td>
+                          <td>4%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Risiko Pasar Portofolio Personal</td>
+                          <td>13.21%</td>
+                          <td>12.05%</td>
+                          <td>0.13%</td>
+                        </tr>
+                        <tr>
+                          <th colspan="5" class="text-center">Komposisi Investasi</th>
                         </tr>
                         <tr>
                           <td colspan="2">Saham</td>
-                          <td>8.76%</td>
-                          <td>8.76%</td>
-                          <td>8.76%</td>
+                          <td>50%</td>
+                          <td>30%</td>
+                          <td>0%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Pendapatan Tetap</td>
+                          <td>20%</td>
+                          <td>30%</td>
+                          <td>0%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Deposito</td>
+                          <td>5%</td>
+                          <td>5%</td>
+                          <td>50%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Saham</td>
+                          <td>20%</td>
+                          <td>30%</td>
+                          <td>0%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Pendapatan Tetap</td>
+                          <td>5%</td>
+                          <td>5%</td>
+                          <td>0%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Pasar Uang</td>
+                          <td>0%</td>
+                          <td>0%</td>
+                          <td>50%</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Campuran</td>
+                          <td>0%</td>
+                          <td>0%</td>
+                          <td>0%</td>
+                        </tr>
+                        <tr>
+                          <th colspan="5" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Saham</td>
                           <td>8.76%</td>
                           <td>8.76%</td>
                           <td>8.76%</td>
@@ -206,15 +262,9 @@
                           <td>6.75%</td>
                           <td>6.75%</td>
                           <td>6.75%</td>
-                          <td>6.75%</td>
-                          <td>6.75%</td>
-                          <td>6.75%</td>
                         </tr>
                         <tr>
                           <td colspan="2">Deposito</td>
-                          <td>4%</td>
-                          <td>4%</td>
-                          <td>4%</td>
                           <td>4%</td>
                           <td>4%</td>
                           <td>4%</td>
@@ -224,15 +274,9 @@
                           <td>8.76%</td>
                           <td>8.76%</td>
                           <td>8.76%</td>
-                          <td>8.76%</td>
-                          <td>8.76%</td>
-                          <td>8.76%</td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Pendapatan Tetap</td>
-                          <td>6.75%</td>
-                          <td>6.75%</td>
-                          <td>6.75%</td>
                           <td>6.75%</td>
                           <td>6.75%</td>
                           <td>6.75%</td>
@@ -242,27 +286,18 @@
                           <td>4%</td>
                           <td>4%</td>
                           <td>4%</td>
-                          <td>4%</td>
-                          <td>4%</td>
-                          <td>4%</td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Campuran</td>
                           <td>7.5%</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>7.5%</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>7.5%</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
-                          <th colspan="8" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
+                          <th colspan="5" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
                         </tr>
                         <tr>
                           <td colspan="2">Saham</td>
-                          <td>17.57%</td>
-                          <td>17.57%</td>
-                          <td>17.57%</td>
                           <td>17.57%</td>
                           <td>17.57%</td>
                           <td>17.57%</td>
@@ -272,15 +307,9 @@
                           <td>11.54%</td>
                           <td>11.54%</td>
                           <td>11.54%</td>
-                          <td>11.54%</td>
-                          <td>11.54%</td>
-                          <td>11.54%</td>
                         </tr>
                         <tr>
                           <td colspan="2">Deposito</td>
-                          <td>0.13%</td>
-                          <td>0.13%</td>
-                          <td>0.13%</td>
                           <td>0.13%</td>
                           <td>0.13%</td>
                           <td>0.13%</td>
@@ -290,15 +319,9 @@
                           <td>17.57%</td>
                           <td>17.57%</td>
                           <td>17.57%</td>
-                          <td>17.57%</td>
-                          <td>17.57%</td>
-                          <td>17.57%</td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Pendapatan Tetap</td>
-                          <td>11%</td>
-                          <td>11%</td>
-                          <td>11%</td>
                           <td>11%</td>
                           <td>11%</td>
                           <td>11%</td>
@@ -308,27 +331,18 @@
                           <td>0.13%</td>
                           <td>0.13%</td>
                           <td>0.13%</td>
-                          <td>0.13%</td>
-                          <td>0.13%</td>
-                          <td>0.13%</td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Campuran</td>
                           <td>15%</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>15%</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>15%</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
-                          <th colspan="8" class="text-center">Asumsi korelasi antar aset  - Personal pada Pasar Keuangan</th>
+                          <th colspan="5" class="text-center">Asumsi korelasi antar aset  - Personal pada Pasar Keuangan</th>
                         </tr>
                         <tr>
                           <td colspan="2">Saham - Pendapatan Tetap</td>
-                          <td>0.33</td>
-                          <td>0.33</td>
-                          <td>0.33</td>
                           <td>0.33</td>
                           <td>0.33</td>
                           <td>0.33</td>
@@ -338,15 +352,9 @@
                           <td>0</td>
                           <td>0</td>
                           <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
                         </tr>
                         <tr>
                           <td colspan="2">Saham - Reksa Dana Saham</td>
-                          <td>0.9</td>
-                          <td>0.9</td>
-                          <td>0.9</td>
                           <td>0.9</td>
                           <td>0.9</td>
                           <td>0.9</td>
@@ -356,15 +364,9 @@
                           <td>0.33</td>
                           <td>0.33</td>
                           <td>0.33</td>
-                          <td>0.33</td>
-                          <td>0.33</td>
-                          <td>0.33</td>
                         </tr>
                         <tr>
                           <td colspan="2">Saham - Reksa Dana Pasar Uang</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
                           <td>0</td>
                           <td>0</td>
                           <td>0</td>
@@ -372,17 +374,11 @@
                         <tr>
                           <td colspan="2">Saham - Reksa Dana Campuran</td>
                           <td>0.12</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.12</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.12</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
                           <td colspan="2">Pendapatan Tetap - Deposito</td>
-                          <td>0.01</td>
-                          <td>0.01</td>
-                          <td>0.01</td>
                           <td>0.01</td>
                           <td>0.01</td>
                           <td>0.01</td>
@@ -392,15 +388,9 @@
                           <td>0.22</td>
                           <td>0.22</td>
                           <td>0.22</td>
-                          <td>0.22</td>
-                          <td>0.22</td>
-                          <td>0.22</td>
                         </tr>
                         <tr>
                           <td colspan="2">Pendapatan Tetap - Reksa Dana Pendapatan Tetap</td>
-                          <td>0.9</td>
-                          <td>0.9</td>
-                          <td>0.9</td>
                           <td>0.9</td>
                           <td>0.9</td>
                           <td>0.9</td>
@@ -410,24 +400,15 @@
                           <td>0.01</td>
                           <td>0.01</td>
                           <td>0.01</td>
-                          <td>0.01</td>
-                          <td>0.01</td>
-                          <td>0.01</td>
                         </tr>
                         <tr>
                           <td colspan="2">Pendapatan Tetap - Reksa Dana Campuran</td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
                           <td colspan="2">Deposito - Reksa Dana Saham</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
                           <td>0</td>
                           <td>0</td>
                           <td>0</td>
@@ -437,15 +418,9 @@
                           <td>0.12</td>
                           <td>0.12</td>
                           <td>0.12</td>
-                          <td>0.12</td>
-                          <td>0.12</td>
-                          <td>0.12</td>
                         </tr>
                         <tr>
                           <td colspan="2">Deposito - Reksa Dana Pasar Uang</td>
-                          <td>0.99</td>
-                          <td>0.99</td>
-                          <td>0.99</td>
                           <td>0.99</td>
                           <td>0.99</td>
                           <td>0.99</td>
@@ -453,17 +428,11 @@
                         <tr>
                           <td colspan="2">Deposito - Reksa Dana Campuran</td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Saham - Reksa Dana Pendapatan Tetap</td>
-                          <td>0.33</td>
-                          <td>0.33</td>
-                          <td>0.33</td>
                           <td>0.33</td>
                           <td>0.33</td>
                           <td>0.33</td>
@@ -473,15 +442,9 @@
                           <td>0.9</td>
                           <td>0.9</td>
                           <td>0.9</td>
-                          <td>0.9</td>
-                          <td>0.9</td>
-                          <td>0.9</td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Saham - Reksa Dana Pasar Uang</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
                           <td>0</td>
                           <td>0</td>
                           <td>0</td>
@@ -489,17 +452,11 @@
                         <tr>
                           <td colspan="2">Reksa Dana Saham - Reksa Dana Campuran</td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Pendapatan Tetap - Reksa Dana Pasar Uang</td>
-                          <td>0.01</td>
-                          <td>0.01</td>
-                          <td>0.01</td>
                           <td>0.01</td>
                           <td>0.01</td>
                           <td>0.01</td>
@@ -507,20 +464,14 @@
                         <tr>
                           <td colspan="2">Reksa Dana Pendapatan Tetap - Reksa Dana Campuran</td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                         <tr>
                           <td colspan="2">Reksa Dana Pasar Uang - Reksa Dana Campuran</td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                           <td>0.22</td>
-                          <td><p class="text-red-500">Instrumen Ditutup</p></td>
                         </tr>
                       </tbody>
                     </table>

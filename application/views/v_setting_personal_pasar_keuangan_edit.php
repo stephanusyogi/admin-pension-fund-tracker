@@ -30,6 +30,63 @@
                       </thead>
                       <tbody>
                         <tr>
+                          <td colspan="2">Return Portofolio Personal</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Risiko Pasar Portofolio Personal</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <th colspan="5" class="text-center">Komposisi Investasi</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Saham</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Pendapatan Tetap</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Deposito</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Saham</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Pendapatan Tetap</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Pasar Uang</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Reksadana Campuran</td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                          <td><input type="text" class="form-control" placeholder="Masukkan Nilai"></td>
+                        </tr>
+                        <tr>
                           <th colspan="6" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
                         </tr>
                         <tr>
