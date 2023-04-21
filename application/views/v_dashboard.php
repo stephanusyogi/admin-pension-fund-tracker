@@ -16,7 +16,7 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="user" class="report-box__icon text-primary"></i> 
+                                        <i data-lucide="users" class="report-box__icon text-primary"></i> 
                                     </div>
                                     <div class="text-3xl font-medium leading-8 mt-6">Soon</div>
                                     <div class="text-base text-slate-500 mt-1">Total Users</div>
@@ -27,7 +27,7 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="user-cog" class="report-box__icon text-primary"></i> 
+                                        <i data-lucide="user" class="report-box__icon text-primary"></i> 
                                     </div>
                                     <div class="text-3xl font-medium leading-8 mt-6">Soon</div>
                                     <div class="text-base text-slate-500 mt-1">Total Adminstrators</div>
