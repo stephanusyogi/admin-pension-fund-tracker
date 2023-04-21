@@ -12,111 +12,237 @@
                         <i data-lucide="plus-circle" class="mr-2"></i>
                         Tambah Jenis Investasi
                       </a>
+                      <a href="<?= base_url() ?>" class="btn btn-md btn-secondary">
+                        <i data-lucide="activity" class="mr-2"></i>
+                        Hitung Nilai
+                      </a>
                     </div>
                   </div>
                   <p class="font-medium">Silahkan pilih jenis investasi terlebih dahulu.</p>
                   <select id="jenis_investasi" class="form-select mt-2" aria-label="Default select example" style="width:50%;">
                         <option disabled selected>Jenis Investasi</option>
-                        <option>Konvensional Reguler</option>
-                        <option>Konvensional Reguler</option>
-                        <option>Konvensional Reguler</option>
+                        <?php foreach ($opsi as $key) { ?>
+                          <option value="<?= $key['id'] ?>"><?= $key['nama_portofolio'] ?></option>  
+                        <?php } ?>
                   </select>
                   <hr class="my-10">
-                  <div class="table-responsive ">
-                    <table class="table table-hover table-bordered" style="width:100%">
-                      <thead>
-                          <tr>
-                            <th>Pilihan Investasi</th>
-                            <th colspan="2" class="text-center">Aksi</th>
-                          </tr>
-                          <tr>
-                            <th>-</th>
-                            <th colspan="2" class="text-center">
-                              <div class="flex items-center justify-center gap-4">
-                                <a href="<?= base_url() ?>setting-portofolio-ppip/edit/1" class="btn btn-sm btn-warning">
-                                  <i data-lucide="edit" class="mr-2"></i>
-                                  Edit
-                                </a>
-                                <a href="<?= base_url() ?>setting-portofolio-ppip/delete" class="hapus-investasi btn btn-sm btn-danger">
-                                  <i data-lucide="trash" class="mr-2"></i>
-                                  Hapus
-                                </a>
-                              </div>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th>Informasi</th>
-                            <th>Investasi</th>
-                            <th>Likuiditas</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                            <td>Return Portofolio PPIP</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Risiko Pasar Portofolio PPIP</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td colspan="3" class="font-medium text-center">Komposisi Investasi</td>
-                          </tr>
-                          <tr>
-                            <td>Saham</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Pendapatan Tetap</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Deposito</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td colspan="3" class="font-medium text-center">Asumsi Return Investasi</td>
-                          </tr>
-                          <tr>
-                            <td>Saham</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Pendapatan Tetap</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Deposito</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td colspan="3" class="font-medium text-center">Asumsi Risiko Investasi</td>
-                          </tr>
-                          <tr>
-                            <td>Saham</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Pendapatan Tetap</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                          <tr>
-                            <td>Deposito</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
-                      </tbody>
-                    </table>
+                  <div id="containerBeforeSelected">
+                    <div class="text-center">
+                      <p class="text2xl font-base">Silahkan Pilih Terlebih Dahulu</p>
+                    </div>
+                  </div>
+                  <div id="containerAfterSelected" style="display:none;">
+                    <form id="myForm" method="post">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-bordered" style="width:100%">
+                          <thead>
+                              <tr>
+                                <th>Pilihan Investasi</th>
+                                <th colspan="2" class="text-center">Aksi</th>
+                              </tr>
+                              <tr>
+                                <th>
+                                  <input id="namaPortofolio" type="text" name="nama_portofolio" class="form-control" placeholder="Masukkan Nama" >
+                                </th>
+                                <th colspan="2" class="text-center">
+                                  <div class="flex items-center justify-center gap-6">
+                                    <div class="form-check">
+                                      <select class="form-select" name="flag" id="flag" aria-label=".form-select-sm example">
+                                          <option value="0">Investasi Ditutup</option>
+                                          <option value="1">Investasi Dibuka</option>
+                                      </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                      Simpan Perubahan
+                                    </button>
+                                  </div>
+                                </th>
+                              </tr>
+                              <tr>
+                                <th>Informasi</th>
+                                <th>Investasi</th>
+                                <th>Likuiditas</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                <td>
+                                  Return Portofolio PPIP
+                                  <p class="text-xs" style="font-style: italic;">Nilai ini akan diperbarui setelah tombol <strong>Hitung Nilai</strong> di tekan.</p>
+                                </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input id="return_portofolio_tranche_investasi" type="number" step="any" name="return_portofolio_tranche_investasi" class="form-control" placeholder="Masukkan Nilai"  readonly>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input id="return_portofolio_tranche_likuiditas" type="number" step="any" name="return_portofolio_tranche_likuiditas" class="form-control" placeholder="Masukkan Nilai"  readonly>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Risiko Pasar Portofolio PPIP
+                                  <p class="text-xs" style="font-style: italic;">Nilai ini akan diperbarui setelah tombol <strong>Hitung Nilai</strong> di tekan.</p>
+                                </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="resiko_portofolio_tranche_investasi" name="resiko_portofolio_tranche_investasi" class="form-control" placeholder="Masukkan Nilai"  readonly>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="resiko_portofolio_tranche_likuiditas" name="resiko_portofolio_tranche_likuiditas" class="form-control" placeholder="Masukkan Nilai"  readonly>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="3" class="font-medium text-center">Komposisi Investasi</td>
+                              </tr>
+                              <tr>
+                                <td>Saham</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="tranche_investasi_saham" name="tranche_investasi_saham" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="tranche_likuiditas_saham" name="tranche_likuiditas_saham" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Pendapatan Tetap</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="tranche_investasi_pendapatan_tetap" name="tranche_investasi_pendapatan_tetap" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                  </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="tranche_likuiditas_pendapatan_tetap" name="tranche_likuiditas_pendapatan_tetap" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Deposito</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="tranche_investasi_deposito" name="tranche_investasi_deposito" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="tranche_likuiditas_deposito" name="tranche_likuiditas_deposito" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="3" class="font-medium text-center">Asumsi Return Investasi</td>
+                              </tr>
+                              <tr>
+                                <td>Saham</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="return_saham" name="return_saham" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Pendapatan Tetap</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="return_pendapatan_tetap" name="return_pendapatan_tetap" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Deposito</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="return_deposito" name="return_deposito" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td colspan="3" class="font-medium text-center">Asumsi Risiko Investasi</td>
+                              </tr>
+                              <tr>
+                                <td>Saham</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="resiko_saham" name="resiko_saham" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Pendapatan Tetap</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="resiko_pendapatan_tetap" name="resiko_pendapatan_tetap" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Deposito</td>
+                                <td>
+                                  <div class="input-group">
+                                    <input type="number" step="any" id="resiko_deposito" name="resiko_deposito" class="form-control" placeholder="Masukkan Nilai"  required>
+                                    <div class="input-group-text">%</div>
+                                  </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td colspan="3" class="font-medium text-center">Korelasi Antar Aset Investasi</td>
+                              </tr>
+                              <tr>
+                                <td>Saham - Pendapatan Tetap</td>
+                                <td>
+                                  <input type="number" step="any" id="korelasi_saham_pendapatan_tetap" name="korelasi_saham_pendapatan_tetap" class="form-control" placeholder="Masukkan Nilai"  required>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Saham - Deposito</td>
+                                <td>
+                                  <input type="number" step="any" id="korelasi_saham_deposito" name="korelasi_saham_deposito" class="form-control" placeholder="Masukkan Nilai"  required>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Pendapatan Tetap - Deposito</td>
+                                <td>
+                                  <input type="number" step="any" id="korelasi_pendapatan_tetap_deposito" name="korelasi_pendapatan_tetap_deposito" class="form-control" placeholder="Masukkan Nilai"  required>
+                                </td>
+                                <td></td>
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </form>
                   </div>
                 </div>
             </div>
@@ -126,23 +252,72 @@
 <!-- END: Content -->
 
 <script>
-  $(".hapus-investasi").on("click", function (e) {
-      e.preventDefault();
-      const href = $(this).attr("href");
+    function setDataToPage(data){
+      const myForm = document.getElementById("myForm"),
+      namaPortofolio = document.getElementById("namaPortofolio"),
+      flag = document.getElementById("flag"),
+      optionFlag = document.createElement("option");
 
-      Swal.fire({
-          title: "Konfirmasi Pilihan Anda",
-          text: "Apakah anda yakin dengan pilihan anda?",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Hapus Investasi",
-          cancelButtonText: "Batalkan",
-      }).then((result) => {
-          if (result.isConfirmed) {  
-            document.location.href = href;
-          }
-      }); 
-  });
-</script>
+      myForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        Swal.fire({
+              title: "Konfirmasi Pilihan Anda",
+              text: "Apakah anda yakin dengan pilihan anda?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Simpan Perubahan",
+              cancelButtonText: "Kembali",
+          }).then((result) => {
+              if (result.isConfirmed) {  
+                myForm.submit();
+              }
+          });
+      });
+
+      myForm.action = "<?= base_url() ?>setting/ppip_edit/"+data.id;
+      namaPortofolio.value = data.nama_portofolio;
+
+      for (var i = 0; i < flag.options.length; i++) {
+        var option = flag.options[i];
+        if (option.value === data.flag.toString()) {
+          option.selected = true;
+          break;
+        }
+      }
+
+
+      // Nilai Variabel
+      const nilai = data;
+      delete data.id;
+      delete data.nama_portofolio;
+      delete data.created_at;
+      delete data.flag;
+
+      for (var key in nilai) {
+        var value = nilai[key];
+        eval("var " + key + " = " + value + ";");
+        document.getElementById(key).value = value;
+      }
+
+    }
+    const select = document.getElementById('jenis_investasi');
+    const container = document.getElementById("container");
+    select.addEventListener('change', function() {
+      document.getElementById("containerBeforeSelected").style.display = "none";
+      document.getElementById("containerAfterSelected").style.display = "block";
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+          let data = xhr.response;
+          let response = JSON.parse(data);
+          setDataToPage(response)
+        }
+      });
+      xhr.open("GET", "<?= base_url() ?>setting/ppip_by_id/"+select.value);
+      xhr.send();
+    });
+  </script>

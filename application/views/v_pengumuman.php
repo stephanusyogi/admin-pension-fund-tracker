@@ -6,34 +6,27 @@
             <div class="grid grid-cols-12 gap-6">
                 <div class="col-span-12 mt-8">
                   <div class="flex items-center" style="justify-content: space-between;">
-                    <p class="text-xl font-semibold mb-2">Data Master Admin</p>
+                    <p class="text-xl font-semibold mb-2">Data Master Pengumuman</p>
                     <div class="flex items-center gap-4" style="justify-content:space-between;">
-                      <a class="btn btn-md btn-success" href="javascript:;" data-tw-toggle="modal" data-tw-target="#add-admin">
-                        Tambah Admin
+                      <a class="btn btn-md btn-success" href="javascript:;" data-tw-toggle="modal" data-tw-target="#add-pengumuman">
+                        Tambah Pengumuman
                       </a>
-                      <div id="add-admin" class="modal" tabindex="-1" aria-hidden="true">
+                      <div id="add-pengumuman" class="modal" tabindex="-1" aria-hidden="true">
                           <div class="modal-dialog">
                               <div class="modal-content modal-xl">
+                                  <div class="modal-header">
+                                      <h2 class="font-medium text-base mr-auto">Tambah Pengumuman</h2>
+                                  </div> <!-- END: Modal Header -->
                                   <div class="modal-body p-10">
-                                    <form action="<?= base_url() ?>admin/tambah_admin" method="post">
-                                      <div class="modal-body grid grid-cols-2 gap-4 gap-y-3">
-                                        <div>
-                                          <label for="name" class="form-label">Nama Admin</label>
-                                          <input id="name" name="name" type="text" class="form-control" required>
-                                        </div>
-                                        <div>
-                                          <label for="username" class="form-label">Username</label>
-                                          <input id="username" name="username" type="text" class="form-control" required>
-                                        </div>
-                                        <div>
-                                          <label for="nip" class="form-label">NIP</label>
-                                          <input id="nip" name="nip" type="text" class="form-control" required>
-                                        </div>
-                                        <div>
-                                          <label for="password" class="form-label">Password</label>
-                                          <input id="password" name="password" type="text" class="form-control" required>
-                                        </div>
+                                    <form action="<?= base_url() ?>pengumuman/add" method="post">
+                                      <div class="mb-2">
+                                        <label for="judul" class="form-label">Judul</label>
+                                        <input id="judul" name="judul" type="text" class="form-control" required>
                                       </div>
+                                      <div class="mb-2">
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                        <textarea name="deskripsi" id="deskripsi" rows="4" class="form-control" required></textarea>
+                                        </div>
                                       <div class="text-right">
                                         <button type="submit" class="btn btn-succes btn-sm">Simpan</button>
                                       </div>
@@ -50,37 +43,43 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama</th>
-                          <th>Username</th>
-                          <th>NIP</th>
+                          <th>Judul</th>
+                          <th>Deskripsi</th>
+                          <th>Created At</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
-                      <?php if($data_admin){ 
+                      <?php if($data_pengumuman){ 
                         $i = 1; 
-                        foreach ($data_admin['data'] as $row) { ?>
+                        foreach ($data_pengumuman['data'] as $row) { ?>
                         <tr>
                           <td><?= $i; ?></td>
-                          <td><?= $row['name']; ?></td>
-                          <td><?= $row['username']; ?></td>
-                          <td><?= $row['nip']; ?></td>
+                          <td><?= $row['judul']; ?></td>
+                          <td><?= $row['deskripsi']; ?></td>
+                          <td><?= $row['created_at']; ?></td>
                           <td>
                             <div class="flex gap-4">
-                              <a href="<?= base_url() ?>admin/hapus/<?= $row['id'] ?>" class="btn btn-sm btn-danger hapus-akun">Hapus Akun</a>
-                              <a href="javascript:;" data-tw-toggle="modal" data-tw-target="#modal-ubah<?= $row['id'] ?>" class="btn btn-sm btn-warning">Ubah Password</a>
+                              <a href="<?= base_url() ?>pengumuman/delete/<?= $row['id'] ?>" class="btn btn-sm btn-danger hapus-akun">Hapus</a>
+                              <a href="javascript:;" data-tw-toggle="modal" data-tw-target="#modal-ubah<?= $row['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
                             </div>
                             <div id="modal-ubah<?= $row['id'] ?>" class="modal" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form class="modal-content modal-lg" method="post" action="<?= base_url() ?>admin/ubah_password/<?= $row['id'] ?>">
+                                    <form class="modal-content modal-lg" method="post" action="<?= base_url() ?>pengumuman/update/<?= $row['id'] ?>">
                                         <!-- BEGIN: Modal Header -->
                                         <div class="modal-header">
-                                            <h2 class="font-medium text-base mr-auto">Ubah Password</h2>
+                                            <h2 class="font-medium text-base mr-auto">Ubah Pengumuman</h2>
                                         </div> <!-- END: Modal Header -->
                                         <!-- BEGIN: Modal Body -->
                                         <div class="modal-body">
-                                          <label for="password_baru" class="form-label">Password Baru</label>
-                                          <input id="password_baru" name="new_password" type="text" class="form-control">
+                                          <div class="mb-2">
+                                            <label for="judul" class="form-label">Judul</label>
+                                            <input id="judul" name="judul" type="text" class="form-control" value="<?= $row['judul']; ?>" required>
+                                          </div>
+                                          <div class="mb-2">
+                                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                                            <textarea name="deskripsi" id="deskripsi" rows="4" class="form-control" required><?= $row['deskripsi']; ?></textarea>
+                                          </div>
                                         </div>
                                         <div class="modal-footer">
                                           <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-20 mr-1">Batal</button>
@@ -118,7 +117,7 @@
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: "Hapus Akun?",
+          confirmButtonText: "Hapus Pengumuman?",
           cancelButtonText: "Kembali",
       }).then((result) => {
           if (result.isConfirmed) {  

@@ -60,14 +60,21 @@ $route['logout'] = 'auth/logout';
 $route['data-peserta'] = 'user';
 
 $route['admin'] = 'admin';
+$route['admin/tambah'] = 'admin/tambah_admin';
+$route['admin/hapus/(:any)'] = 'admin/hapus_admin/$1';
 
 $route['setting-portofolio-ppip'] = 'setting/ppip';
 $route['setting-portofolio-ppip/tambah'] = 'setting/ppip_add';
-$route['setting-portofolio-ppip/edit/(:any)'] = 'setting/ppip_edit/$1';
 
 $route['setting-nilai-asumsi'] = 'setting/nilai_asumsi';
 
 $route['setting-portofolio-personal-pasar-keuangan'] = 'setting/personal_pasar_keuangan';
 $route['setting-portofolio-personal-pasar-keuangan/tambah'] = 'setting/personal_pasar_keuangan_add';
-$route['setting-portofolio-personal-pasar-keuangan/edit/(:any)'] = 'setting/personal_pasar_keuangan_edit/$1';
+
+$route['pengumuman'] = 'pengumuman';
+$route['pengumuman/add'] = 'pengumuman/pengumuman_add';
+$route['pengumuman/update/(:any)'] = 'pengumuman/pengumuman_update/$1';
+$route['pengumuman/delete/(:any)'] = 'pengumuman/pengumuman_delete/$1';
+
+$route['export'] = 'export';
 

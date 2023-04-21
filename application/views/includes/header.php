@@ -125,7 +125,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="side-nav__devider my-6"></li>
+                        <li class="side-nav__devider my-4"></li>
                         <li>
                             <a href="<?= base_url() ?>data-peserta" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="users"></i> </div>
@@ -134,7 +134,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="side-nav__devider my-6"></li>
+                        <li class="side-nav__devider my-4"></li>
                         <li>
                             <a href="<?= base_url() ?>setting-nilai-asumsi" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="settings"></i> </div>
@@ -159,12 +159,29 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="side-nav__devider my-6"></li>
+                        <li class="side-nav__devider my-4"></li>
                         <li>
                             <a href="<?= base_url() ?>admin" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-lucide="wrench"></i> </div>
                                 <div class="side-menu__title">
                                     Administrator
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() ?>pengumuman" class="side-menu ">
+                                <div class="side-menu__icon"> <i data-lucide="megaphone"></i> </div>
+                                <div class="side-menu__title">
+                                    Pengumuman
+                                </div>
+                            </a>
+                        </li>
+                        <li class="side-nav__devider my-4"></li>
+                        <li>
+                            <a href="<?= base_url() ?>export" class="side-menu ">
+                                <div class="side-menu__icon"> <i data-lucide="printer"></i> </div>
+                                <div class="side-menu__title">
+                                    Excel Export
                                 </div>
                             </a>
                         </li>

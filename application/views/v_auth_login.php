@@ -18,6 +18,20 @@
         <!-- jQuery -->
         <script src="<?= base_url("assets/plugins/") ?>/jquery/jquery.min.js"></script>
     </head>
+    <style>
+      .password-container {
+        position: relative;
+      }
+
+      #toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        z-index: 100;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    </style>
     <!-- Alert Error -->
     <?php
       $error = $this->session->flashdata('error');
@@ -64,8 +78,19 @@
                         <div class="intro-x mt-2 text-slate-400 xl:hidden text-center">Pension Fund Tracker</div>
                         <form action="<?= base_url() ?>login-verification" method="post">
                           <div class="intro-x mt-8">
-                              <input type="text" name="username" class="intro-x login__input form-control py-3 px-4 block" placeholder="Username">
-                              <input type="password" name="password" class="intro-x login__input form-control py-3 px-4 block mt-4" placeholder="Password">
+                              <input type="text" name="username" id="username" class="intro-x login__input form-control py-3 px-4 block" placeholder="Username">
+                              <div class="password-container">
+                                <input type="password" name="password" id="password" class="intro-x login__input form-control py-3 px-4 block mt-4" placeholder="Password">
+                                <span id="toggle-password">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="eye" data-lucide="eye" class="lucide lucide-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </span>
+                              </div>
+                          </div>
+                          <div class="intro-x flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm mt-4">
+                            <div class="flex items-center mr-auto">
+                                <input id="remember-me" type="checkbox" class="form-check-input border mr-2">
+                                <label class="cursor-pointer select-none" for="remember-me">Ingat Saya?</label>
+                            </div>
                           </div>
                           <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                               <button type="submit" class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top">Login</button>
@@ -77,6 +102,43 @@
             </div>
         </div>
         
+        <script>
+          const togglePassword = document.querySelector('#toggle-password');
+          const rememberMeCheckbox = document.querySelector('#remember-me');
+          const usernameInput = document.querySelector('#username');
+          const passwordInput = document.querySelector('#password');
+          const storedUsername = localStorage.getItem('username_admin_yourpensiontracker');
+          const storedPassword = localStorage.getItem('password_admin_yourpensiontracker');
+
+          togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="eye" data-lucide="eye" class="lucide lucide-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="eye-off" data-lucide="eye-off" class="lucide lucide-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
+          });
+
+          if (storedUsername && storedPassword) {
+            usernameInput.value = storedUsername;
+            passwordInput.value = storedPassword;
+            rememberMeCheckbox.checked = true;
+          }
+    
+          rememberMeCheckbox.addEventListener('change', function() {
+            if (usernameInput.value === "" && passwordInput.value === "") {
+              alert("Isi terlebih dahulu email & password anda.");
+              this.checked = false;
+            } else {
+              if (this.checked) {
+                const email = usernameInput.value;
+                const password = passwordInput.value;
+                localStorage.setItem('username_admin_yourpensiontracker', email);
+                localStorage.setItem('password_admin_yourpensiontracker', password);
+              } else {
+                localStorage.removeItem('username_admin_yourpensiontracker');
+                localStorage.removeItem('password_admin_yourpensiontracker');
+              }
+            }
+          });
+        </script>
         <!-- BEGIN: JS Assets-->
         <script src="<?= base_url() ?>assets/template/dist/js/app.js"></script>
         <!-- END: JS Assets-->
