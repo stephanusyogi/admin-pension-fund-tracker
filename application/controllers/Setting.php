@@ -47,11 +47,17 @@ class Setting extends MY_controller {
 	public function ppip_add_action()
 	{
 		$postData = $this->input->post();
-		$postData['flag'] = 1;
 		
 		$response = $this->send_request_with_data('setting-ppip/admin/add', $this->token, 'POST', $postData);
 		
 		$this->session->set_flashdata('success', "Nilai Berhasil Ditambahkan!");
+		redirect(base_url()."setting-portofolio-ppip");
+	}
+
+	public function ppip_hitung_nilai(){
+		$res = $this->send_request("setting-ppip/admin/hitung-nilai", $this->token, "POST");
+		
+		$this->session->set_flashdata('success', "Nilai Berhasil Dihitung!");
 		redirect(base_url()."setting-portofolio-ppip");
 	}
 	
@@ -101,10 +107,19 @@ class Setting extends MY_controller {
 	public function personal_pasar_keuangan()
 	{
 		$data_aset = $this->send_request("setting-personal-lifecycle/admin/buka-tutup-aset", $this->token, "POST")['data'];
+		$status_aset = array();
+		foreach ($data_aset as $key) {
+			$aset = strtolower($key['jenis_aset']);
+			$aset = str_replace(" ", "_", $aset);
+
+			$status_aset[$aset] = $key['dibuka'];
+		}
+
 		$data = $this->send_request("setting-personal-lifecycle/admin", $this->token, "GET");
 		
 		$data['opsi'] = $data['opsi'];
 		$data['data_aset'] = $data_aset;
+		$data['status_aset'] = $status_aset;
 		$data['title'] = "Setting Portofolio Pasar Keuangan";
     $data['menuLink'] = "setting-portofolio-personal-pasar-keuangan";
 
@@ -121,6 +136,17 @@ class Setting extends MY_controller {
 	
 	public function personal_pasar_keuangan_add()
 	{
+		$data_aset = $this->send_request("setting-personal-lifecycle/admin/buka-tutup-aset", $this->token, "POST")['data'];
+		$status_aset = array();
+		foreach ($data_aset as $key) {
+			$aset = strtolower($key['jenis_aset']);
+			$aset = str_replace(" ", "_", $aset);
+
+			$status_aset[$aset] = $key['dibuka'];
+		}
+		
+		$data['data_aset'] = $data_aset;
+		$data['status_aset'] = $status_aset;
 		$data['title'] = "Setting Portofolio Pasar Keuangan";
     $data['menuLink'] = "setting-portofolio-personal-pasar-keuangan";
 
@@ -132,7 +158,6 @@ class Setting extends MY_controller {
 	public function personal_pasar_keuangan_add_action()
 	{
 		$postData = $this->input->post();
-		$postData['flag'] = 1;
 		
 		$response = $this->send_request_with_data('setting-personal-lifecycle/admin/add', $this->token, 'POST', $postData);
 		
@@ -148,6 +173,13 @@ class Setting extends MY_controller {
 		$response = $this->send_request_with_data('setting-personal-lifecycle/admin/update', $this->token, 'POST', $postData);
 		
 		$this->session->set_flashdata('success', "Nilai Berhasil Diperbarui!");
+		redirect(base_url()."setting-portofolio-personal-pasar-keuangan");
+	}
+	
+	public function personal_pasar_keuangan_hitung_nilai(){
+		$res = $this->send_request("setting-personal-lifecycle/admin/hitung-nilai", $this->token, "POST");
+		
+		$this->session->set_flashdata('success', "Nilai Berhasil Dihitung!");
 		redirect(base_url()."setting-portofolio-personal-pasar-keuangan");
 	}
 

@@ -12,7 +12,7 @@
                         <i data-lucide="plus-circle" class="mr-2"></i>
                         Tambah Jenis Investasi
                       </a>
-                      <a href="<?= base_url() ?>" class="btn btn-md btn-secondary">
+                      <a href="<?= base_url() ?>setting/ppip_hitung_nilai" class="btn btn-md btn-secondary" id="hitungNilai">
                         <i data-lucide="activity" class="mr-2"></i>
                         Hitung Nilai
                       </a>
@@ -321,3 +321,23 @@
       xhr.send();
     });
   </script>
+
+<script>
+document.getElementById('hitungNilai').addEventListener('click', function(event) {
+  event.preventDefault();
+  Swal.fire({
+      title: "Konfirmasi Pilihan Anda",
+      text: "Hitung Nilai Setting PPIP?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Hitung",
+      cancelButtonText: "Batal",
+  }).then((result) => {
+      if (result.isConfirmed) {  
+        window.location.href = event.target.href;
+      }
+  });
+});
+</script>

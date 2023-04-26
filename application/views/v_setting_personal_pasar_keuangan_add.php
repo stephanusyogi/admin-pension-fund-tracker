@@ -1,4 +1,22 @@
-
+<?php 
+  function check_status_aset($first_status, $second_status){
+    if ($second_status === null) {
+      if (!$first_status) {
+        return '<p class="text-sm" style="color: red;font-style: italic;">Aset Ditutup</p>';
+      } else {
+        return '';
+      }
+    } else {
+      if (!$first_status) {
+        return '<p class="text-sm" style="color: red;font-style: italic;">Aset Ditutup</p>';
+      }elseif (!$second_status) {
+        return '<p class="text-sm" style="color: red;font-style: italic;">Aset Ditutup</p>';
+      }else {
+        return '';
+      }
+    }
+  }
+?>
 <!-- BEGIN: Content -->
 <div class="content">
     <div class="grid grid-cols-12 gap-6">
@@ -186,7 +204,7 @@
                           <th colspan="5" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham <span style="color: red;">(*)</span> <?= check_status_aset($status_aset['saham'] , null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_s_tranche1" name="return_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -207,7 +225,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap <span style="color: red;">(*)</span>  <?= check_status_aset($status_aset['pendapatan_tetap'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_pt_tranche1" name="return_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -228,7 +246,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Deposito <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Deposito <span style="color: red;">(*)</span><?= check_status_aset($status_aset['deposito'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_d_tranche1" name="return_d_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -249,7 +267,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Saham <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_saham'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_r_s_tranche1" name="return_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -270,7 +288,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pendapatan_tetap'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_r_pt_tranche1" name="return_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -291,7 +309,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pasar_uang'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_r_pu_tranche1" name="return_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -312,7 +330,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_campuran'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="return_r_c_tranche1" name="return_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -333,10 +351,10 @@
                           </td>
                         </tr>
                         <tr>
-                          <th colspan="5" class="text-center">Asumsi Return Investasi  - Personal pada Pasar Keuangan</th>
+                          <th colspan="5" class="text-center">Asumsi Resiko Investasi  - Personal pada Pasar Keuangan</th>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_s_tranche1" name="resiko_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -357,7 +375,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['pendapatan_tetap'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_pt_tranche1" name="resiko_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -378,7 +396,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Deposito <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Deposito <span style="color: red;">(*)</span><?= check_status_aset($status_aset['deposito'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_d_tranche1" name="resiko_d_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -399,7 +417,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Saham <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_saham'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_r_s_tranche1" name="resiko_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -420,7 +438,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pendapatan_tetap'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_r_pt_tranche1" name="resiko_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -441,7 +459,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pasar_uang'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_r_pu_tranche1" name="resiko_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -462,7 +480,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_campuran'], null) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="resiko_r_c_tranche1" name="resiko_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -486,7 +504,7 @@
                           <th colspan="5" class="text-center">Asumsi korelasi antar aset  - Personal pada Pasar Keuangan</th>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham - Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham - Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], $status_aset['pendapatan_tetap']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_s_pt_tranche1" name="korelasi_s_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -507,7 +525,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham - Deposito <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham - Deposito <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], $status_aset['deposito']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_s_d_tranche1" name="korelasi_s_d_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -528,7 +546,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham - Reksa Dana Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham - Reksa Dana Saham <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], $status_aset['reksa_dana_saham']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_s_r_s_tranche1" name="korelasi_s_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -549,7 +567,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], $status_aset['reksa_dana_pendapatan_tetap']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korealsi_s_r_pt_tranche1" name="korealsi_s_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -570,7 +588,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham - Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham - Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], $status_aset['reksa_dana_pasar_uang']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_s_r_pu_tranche1" name="korelasi_s_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -591,7 +609,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Saham - Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Saham - Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['saham'], $status_aset['reksa_dana_campuran']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_s_r_c_tranche1" name="korelasi_s_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -612,7 +630,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap - Deposito <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap - Deposito <span style="color: red;">(*)</span><?= check_status_aset($status_aset['pendapatan_tetap'], $status_aset['deposito']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_pt_d_tranche1" name="korelasi_pt_d_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -633,7 +651,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap - Reksa Dana Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap - Reksa Dana Saham <span style="color: red;">(*)</span><?= check_status_aset($status_aset['pendapatan_tetap'], $status_aset['reksa_dana_saham']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korealsi_pt_r_s_tranche1" name="korealsi_pt_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -654,7 +672,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['pendapatan_tetap'], $status_aset['reksa_dana_pendapatan_tetap']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_pt_r_pt_tranche1" name="korelasi_pt_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -675,7 +693,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap - Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap - Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['pendapatan_tetap'], $status_aset['reksa_dana_pasar_uang']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_pt_r_pu_tranche1" name="korelasi_pt_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -696,7 +714,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Pendapatan Tetap - Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Pendapatan Tetap - Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['pendapatan_tetap'], $status_aset['reksa_dana_campuran']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_pt_r_c_tranche1" name="korelasi_pt_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -717,7 +735,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Deposito - Reksa Dana Saham <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Deposito - Reksa Dana Saham <span style="color: red;">(*)</span><?= check_status_aset($status_aset['deposito'], $status_aset['reksa_dana_saham']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_d_r_s_tranche1" name="korelasi_d_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -738,7 +756,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Deposito - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Deposito - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['deposito'], $status_aset['reksa_dana_pendapatan_tetap']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_d_r_pt_tranche1" name="korelasi_d_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -759,7 +777,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Deposito - Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Deposito - Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['deposito'], $status_aset['reksa_dana_pasar_uang']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_d_r_pu_tranche1" name="korelasi_d_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -780,7 +798,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Deposito - Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Deposito - Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['deposito'], $status_aset['reksa_dana_campuran']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_d_r_c_tranche1" name="korelasi_d_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -801,7 +819,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Saham - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Saham - Reksa Dana Pendapatan Tetap <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_saham'], $status_aset['reksa_dana_pendapatan_tetap']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_r_s_r_pt_tranche1" name="korelasi_r_s_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -822,7 +840,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Saham - Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Saham - Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_saham'], $status_aset['reksa_dana_pasar_uang']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_r_s_r_pu_tranche1" name="korelasi_r_s_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -843,7 +861,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Saham - Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Saham - Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_saham'], $status_aset['reksa_dana_campuran']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_r_s_r_c_tranche1" name="korelasi_r_s_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -864,7 +882,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pendapatan Tetap - Reksa Dana Pasar Uang <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pendapatan Tetap - Reksa Dana Pasar Uang <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pendapatan_tetap'], $status_aset['reksa_dana_pasar_uang']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_r_pt_r_pu_tranche1" name="korelasi_r_pt_r_pu_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -885,7 +903,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pendapatan Tetap - Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pendapatan Tetap - Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pendapatan_tetap'], $status_aset['reksa_dana_campuran']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_r_pt_r_c_tranche1" name="korelasi_r_pt_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
@@ -906,7 +924,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Reksa Dana Pasar Uang - Reksa Dana Campuran <span style="color: red;">(*)</span></td>
+                          <td colspan="2">Reksa Dana Pasar Uang - Reksa Dana Campuran <span style="color: red;">(*)</span><?= check_status_aset($status_aset['reksa_dana_pasar_uang'], $status_aset['reksa_dana_campuran']) ?></td>
                           <td>
                             <div class="input-group">
                               <input type="number" step="any" id="korelasi_r_pu_r_c_tranche1" name="korelasi_r_pu_r_c_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
