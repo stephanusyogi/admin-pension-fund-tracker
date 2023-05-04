@@ -699,19 +699,19 @@
                               <td colspan="2">Saham - Reksa Dana Pendapatan Tetap <?= check_status_aset($status_aset['saham'], $status_aset['reksa_dana_pendapatan_tetap']) ?></td>
                               <td>
                                 <div class="input-group">
-                                  <input type="number" step="any" id="korealsi_s_r_pt_tranche1" name="korealsi_s_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
+                                  <input type="number" step="any" id="korelasi_s_r_pt_tranche1" name="korelasi_s_r_pt_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
                                   <div class="input-group-text">%</div>
                                 </div>
                               </td>
                               <td>
                                 <div class="input-group">
-                                  <input type="number" step="any" id="korealsi_s_r_pt_tranche2" name="korealsi_s_r_pt_tranche2" class="form-control" placeholder="Masukkan Nilai"  required>
+                                  <input type="number" step="any" id="korelasi_s_r_pt_tranche2" name="korelasi_s_r_pt_tranche2" class="form-control" placeholder="Masukkan Nilai"  required>
                                   <div class="input-group-text">%</div>
                                 </div>
                               </td>
                               <td>
                                 <div class="input-group">
-                                  <input type="number" step="any" id="korealsi_s_r_pt_tranche3" name="korealsi_s_r_pt_tranche3" class="form-control" placeholder="Masukkan Nilai"  required>
+                                  <input type="number" step="any" id="korelasi_s_r_pt_tranche3" name="korelasi_s_r_pt_tranche3" class="form-control" placeholder="Masukkan Nilai"  required>
                                   <div class="input-group-text">%</div>
                                 </div>
                               </td>
@@ -783,19 +783,19 @@
                               <td colspan="2">Pendapatan Tetap - Reksa Dana Saham <?= check_status_aset($status_aset['pendapatan_tetap'], $status_aset['reksa_dana_saham']) ?></td>
                               <td>
                                 <div class="input-group">
-                                  <input type="number" step="any" id="korealsi_pt_r_s_tranche1" name="korealsi_pt_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
+                                  <input type="number" step="any" id="korelasi_pt_r_s_tranche1" name="korelasi_pt_r_s_tranche1" class="form-control" placeholder="Masukkan Nilai"  required>
                                   <div class="input-group-text">%</div>
                                 </div>
                               </td>
                               <td>
                                 <div class="input-group">
-                                  <input type="number" step="any" id="korealsi_pt_r_s_tranche2" name="korealsi_pt_r_s_tranche2" class="form-control" placeholder="Masukkan Nilai"  required>
+                                  <input type="number" step="any" id="korelasi_pt_r_s_tranche2" name="korelasi_pt_r_s_tranche2" class="form-control" placeholder="Masukkan Nilai"  required>
                                   <div class="input-group-text">%</div>
                                 </div>
                               </td>
                               <td>
                                 <div class="input-group">
-                                  <input type="number" step="any" id="korealsi_pt_r_s_tranche3" name="korealsi_pt_r_s_tranche3" class="form-control" placeholder="Masukkan Nilai"  required>
+                                  <input type="number" step="any" id="korelasi_pt_r_s_tranche3" name="korelasi_pt_r_s_tranche3" class="form-control" placeholder="Masukkan Nilai"  required>
                                   <div class="input-group-text">%</div>
                                 </div>
                               </td>
@@ -1144,7 +1144,6 @@
         document.getElementById(key).value = value;
       }
     
-      console.log(nilai_lifecycle)
       for (var key in nilai_lifecycle) {
         var value = nilai_lifecycle[key];
         eval("var " + key + " = " + value + ";");
