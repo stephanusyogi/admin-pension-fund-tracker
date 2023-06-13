@@ -27,7 +27,7 @@
                         <td>Kenaikan Gaji per tahun</td>
                         <td>
                           <div class="input-group">
-                            <input type="number" name="kenaikan_gaji" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['kenaikan_gaji'] ? round($data['kenaikan_gaji'],2) : '' ?>" required>
+                            <input type="number" step="0.01" name="kenaikan_gaji" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['kenaikan_gaji'] ? round($data['kenaikan_gaji'],2) : '' ?>" required>
                             <div class="input-group-text">%</div>
                           </div>
                         </td>
@@ -37,7 +37,7 @@
                         <td>Kenaikan PhDP per tahun</td>
                         <td>
                           <div class="input-group">
-                            <input type="number" name="kenaikan_phdp" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['kenaikan_phdp'] ? round($data['kenaikan_phdp'],2) : '' ?>" required>
+                            <input type="number" step="0.01" name="kenaikan_phdp" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['kenaikan_phdp'] ? round($data['kenaikan_phdp'],2) : '' ?>" required>
                             <div class="input-group-text">%</div>
                           </div>
                         </td>
@@ -46,7 +46,7 @@
                         <td>Iuran PPIP (% dari gaji)</td>
                         <td>
                           <div class="input-group">
-                            <input type="number" name="iuran_ppip" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['iuran_ppip'] ? round($data['iuran_ppip'],2) : '' ?>" required>
+                            <input type="number" step="0.01" name="iuran_ppip" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['iuran_ppip'] ? round($data['iuran_ppip'],2) : '' ?>" required>
                             <div class="input-group-text">%</div>
                           </div>
                         </td>
@@ -59,7 +59,7 @@
                         <td>Inflasi jangka panjang (%)</td>
                         <td>
                           <div class="input-group">
-                            <input type="number" name="inflasi_jangka_panjang" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['inflasi_jangka_panjang'] ? round($data['inflasi_jangka_panjang'],2) : '' ?>" required>
+                            <input type="number" step="0.01" name="inflasi_jangka_panjang" class="form-control" placeholder="Masukkan Nilai" value="<?= $data['inflasi_jangka_panjang'] ? round($data['inflasi_jangka_panjang'],2) : '' ?>" required>
                             <div class="input-group-text">%</div>
                           </div>
                         </td>
